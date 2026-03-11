@@ -140,6 +140,17 @@ opacity:0.6;
 <span id="artistCount">0</span> ARTISTS JOINED
 </div>
 
+<div class="counter">
+
+<p>ANMELDUNG SCHLIESST IN</p>
+
+<p>
+<span id="days">0</span> TAGE<br>
+<span id="hours">0</span> STUNDEN<br>
+<span id="minutes">0</span> MINUTEN
+</p>
+
+</div>
 
 <p>
 SIGN UP BELOW
@@ -166,7 +177,7 @@ SIGN UP BELOW
 <script>
 
 let count = 0
-let target = 31
+let target = 32
 
 function animateCounter(){
 
@@ -179,6 +190,40 @@ setTimeout(animateCounter,40)
 }
 
 animateCounter()
+
+// COUNTDOWN
+
+const endDate = new Date()
+endDate.setDate(endDate.getDate() + 7)
+
+function updateCountdown(){
+
+const now = new Date().getTime()
+const distance = endDate - now
+
+const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+
+document.getElementById("days").innerText = days
+document.getElementById("hours").innerText = hours
+document.getElementById("minutes").innerText = minutes
+
+if(distance <= 0){
+
+document.querySelector(".counter").innerHTML = "ANMELDUNG GESCHLOSSEN"
+
+const inputs = document.querySelectorAll("input")
+inputs.forEach(input => input.disabled = true)
+
+document.querySelector("button").disabled = true
+document.querySelector("button").innerText = "GESCHLOSSEN"
+
+}
+
+}
+
+setInterval(updateCountdown,1000)
 
 </script>
 
