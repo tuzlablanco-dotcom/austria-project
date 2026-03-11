@@ -73,6 +73,20 @@ font-size:14px;
 opacity:0.6;
 }
 
+  .scroll-indicator{
+text-align:center;
+font-size:28px;
+margin-top:40px;
+animation:scrollbounce 1.5s infinite;
+opacity:0.7;
+}
+
+@keyframes scrollbounce{
+0%{transform:translateY(0);}
+50%{transform:translateY(8px);}
+100%{transform:translateY(0);}
+}
+  
 </style>
 
 </head>
@@ -91,6 +105,10 @@ opacity:0.6;
 </div>
 
 <h1>TUZLA BLANCO</h1>
+
+<div class="scroll-indicator">
+↓
+</div>
 
   <p>
 TUZLA BLANCO IST EIN AUFSTREBENDER MUSIKPRODUZENT AUS OBERÖSTERREICH
