@@ -8,6 +8,34 @@
 
 <style>
 
+    .dropcountdown{
+margin-top:70px;
+text-align:center;
+}
+
+.droptitle{
+font-size:14px;
+letter-spacing:2px;
+margin-bottom:30px;
+}
+
+.timegrid{
+display:flex;
+justify-content:center;
+gap:40px;
+}
+
+.timeblock span{
+font-size:42px;
+font-weight:700;
+font-family:Helvetica, Arial, sans-serif;
+}
+
+.timeblock p{
+font-size:12px;
+letter-spacing:2px;
+margin-top:8px;
+}
 body{
 background:#ffffff;
 color:#000000;
@@ -140,15 +168,33 @@ opacity:0.6;
 <span id="artistCount">0</span> ARTISTS JOINED
 </div>
 
-<div class="counter">
+<div class="dropcountdown">
 
-<p>ANMELDUNG SCHLIESST IN</p>
+<p class="droptitle">ANMELDUNG SCHLIESST IN</p>
 
-<p>
-<span id="days">0</span> TAGE<br>
-<span id="hours">0</span> STUNDEN<br>
-<span id="minutes">0</span> MINUTEN
-</p>
+<div class="timegrid">
+
+<div class="timeblock">
+<span id="days">00</span>
+<p>TAGE</p>
+</div>
+
+<div class="timeblock">
+<span id="hours">00</span>
+<p>STUNDEN</p>
+</div>
+
+<div class="timeblock">
+<span id="minutes">00</span>
+<p>MINUTEN</p>
+</div>
+
+<div class="timeblock">
+<span id="seconds">00</span>
+<p>SEKUNDEN</p>
+</div>
+
+</div>
 
 </div>
 
@@ -204,6 +250,8 @@ const distance = endDate - now
 const days = Math.floor(distance / (1000 * 60 * 60 * 24))
 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+document.getElementById("seconds").innerText = seconds
 
 document.getElementById("days").innerText = days
 document.getElementById("hours").innerText = hours
