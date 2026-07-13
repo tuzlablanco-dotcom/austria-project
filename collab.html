@@ -8,6 +8,14 @@
 
 <style>
 
+    .closed{
+text-align:center;
+font-size:16px;
+letter-spacing:2px;
+margin-top:50px;
+opacity:0.75;
+}
+
     .dropcountdown{
 margin-top:70px;
 text-align:center;
@@ -168,55 +176,9 @@ opacity:0.6;
 <span id="artistCount">0</span> ARTISTS JOINED
 </div>
 
-<div class="dropcountdown">
-
-<p class="droptitle">ANMELDUNG SCHLIESST IN</p>
-
-<div class="timegrid">
-
-<div class="timeblock">
-<span id="days">00</span>
-<p>TAGE</p>
-</div>
-
-<div class="timeblock">
-<span id="hours">00</span>
-<p>STUNDEN</p>
-</div>
-
-<div class="timeblock">
-<span id="minutes">00</span>
-<p>MINUTEN</p>
-</div>
-
-<div class="timeblock">
-<span id="seconds">00</span>
-<p>SEKUNDEN</p>
-</div>
-
-</div>
-
-</div>
-
-<p>
-SIGN UP BELOW
+<p class="closed">
+ANMELDUNG GESCHLOSSEN — NEWS SOON
 </p>
-
-<div class="form">
-
-<form action="https://formsubmit.co/tuzlablanco@gmail.com" method="POST">
-
-<input type="text" name="Name" placeholder="Name / Artist Name" required>
-
-<input type="text" name="Instagram" placeholder="Instagram @handle" required>
-
-<input type="hidden" name="_captcha" value="false">
-
-<button type="submit">SUBMIT</button>
-
-</form>
-
-</div>
 
 </div>
 
@@ -235,42 +197,7 @@ setTimeout(animateCounter,40)
 
 }
 
-animateCounter()
 
-// COUNTDOWN
-
-const endDate = new Date("March 18, 2026 23:59:59").getTime()
-
-function updateCountdown(){
-
-const now = new Date().getTime()
-const distance = endDate - now
-
-const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-const seconds = Math.floor((distance % (1000 * 60)) / 1000)
-document.getElementById("seconds").innerText = seconds
-
-document.getElementById("days").innerText = days
-document.getElementById("hours").innerText = hours
-document.getElementById("minutes").innerText = minutes
-
-if(distance <= 0){
-
-document.querySelector(".counter").innerHTML = "ANMELDUNG GESCHLOSSEN"
-
-const inputs = document.querySelectorAll("input")
-inputs.forEach(input => input.disabled = true)
-
-document.querySelector("button").disabled = true
-document.querySelector("button").innerText = "GESCHLOSSEN"
-
-}
-
-}
-
-setInterval(updateCountdown,1000)
 
 </script>
 
